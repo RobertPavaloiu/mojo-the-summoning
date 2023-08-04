@@ -38,3 +38,5 @@ describe('attack', () => {
       expect(attack).toHaveProperty('staminaCost')
     }) 
   });
+
+  
