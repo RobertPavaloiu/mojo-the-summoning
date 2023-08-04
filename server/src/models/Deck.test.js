@@ -1,28 +1,34 @@
 const { describe, it, expect, beforeAll, afterAll } = require('@jest/globals')
-const { User } = require('.')
+const { Deck } = require('.')
 const db = require('../db/config')
 
 // define in global scope
-let user
+let deck
 
 // clear db and create new user before tests
 beforeAll(async () => {
   await db.sync({ force: true })
-  user = await User.create({ username: 'gandalf' })
+  deck = await Deck.create({ })
 })
 
 // clear db after tests
 afterAll(async () => await db.sync({ force: true }))
 
-describe('User', () => {
+describe('Deck', () => {
   it('has an id', async () => {
-    expect(user).toHaveProperty('id')
+    expect(deck).toHaveProperty('id')
   }) 
 });
 
 
-describe('User', () => {
-  it('has a userName', async () => {
-    expect(user).toHaveProperty('userName')
+describe('Deck', () => {
+  it('has a name', async () => {
+    expect(deck).toHaveProperty('name')
   }) 
 });
+
+describe('Deck', () => {
+    it('has xp', async () => {
+      expect(deck).toHaveProperty('xp')
+    }) 
+  });
